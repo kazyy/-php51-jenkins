@@ -2,7 +2,7 @@ FROM centos:5
 RUN yum install -y epel-release
 RUN rpm -U --force http://rpms.famillecollet.com/enterprise/remi-release-5.rpm
 
-# PHPŠÖ˜AƒCƒ“ƒXƒg[ƒ‹
+# PHPé–¢é€£ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 RUN yum install -y php \
   php-pecl-xdebug \
   php-xml \
@@ -16,14 +16,14 @@ RUN yum install -y php \
   php-phpmd-PHP-PMD \
   php-pear-phing \
 
-# jenkinsƒCƒ“ƒXƒg[ƒ‹
+# jenkinsã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 RUN yum install -y java-1.7.0-openjdk-devel
 RUN curl -o /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
 RUN rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 RUN yum install -y jenkins
 RUN chkconfig jenkins on
 
-# capistranoƒCƒ“ƒXƒg[ƒ‹
+# capistranoã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 RUN yum install -y zlib-devel openssl-devel gcc make
 RUN curl -O http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.5.tar.gz && \
   tar xf ruby-2.1.5.tar.gz && \
