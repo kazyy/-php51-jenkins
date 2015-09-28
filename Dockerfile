@@ -20,6 +20,7 @@ RUN pear channel-discover pear.symfony.com
 RUN pear install --force --onlyreqdeps phing/phing-2.9.1
 
 ADD function.php /usr/share/php/
+ADD phing.ini /etc/php.d/
 
 # jenkinsインストール
 RUN yum install -y java-1.7.0-openjdk-devel
