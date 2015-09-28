@@ -8,13 +8,21 @@ RUN yum install -y php \
   php-xml \
   php-devel \
   php-pear-XML-Serializer \
-  php-password-compat \
-  php-symfony \
-  php-phpunit-PHPUnit \
-  php-phpunit-phpcpd \
-  php-pear-PHP-CodeSniffer \
-  php-phpmd-PHP-PMD \
-  php-pear-phing \
+  php-channel-phpunit \
+  php-pear-PHP-CodeSniffer
+
+RUN pear config-set preferred_state beta
+
+RUN pear channel-discover pear.phpmd.org
+RUN pear channel-discover pear.pdepend.org
+RUN pear channel-discover pear.phing.info
+RUN pear channel-discover pear.netpirates.net
+RUN pear channel-discover pear.symfony.com
+
+# 依存関係（PHP 5.2以上）を無視してインストールする。
+RUN pear install --force phpmd/PHP_PMD
+
+RUN pear install --force --onlyreqdeps phing/phing-2.9.1
 
 # jenkinsインストール
 RUN yum install -y java-1.7.0-openjdk-devel
