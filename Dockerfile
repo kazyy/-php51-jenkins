@@ -13,14 +13,9 @@ RUN yum install -y php \
 
 RUN pear config-set preferred_state beta
 
-RUN pear channel-discover pear.phpmd.org
-RUN pear channel-discover pear.pdepend.org
 RUN pear channel-discover pear.phing.info
 RUN pear channel-discover pear.netpirates.net
 RUN pear channel-discover pear.symfony.com
-
-# 依存関係（PHP 5.2以上）を無視してインストールする。
-RUN pear install --force phpmd/PHP_PMD
 
 RUN pear install --force --onlyreqdeps phing/phing-2.9.1
 
