@@ -19,6 +19,8 @@ RUN pear channel-discover pear.symfony.com
 
 RUN pear install --force --onlyreqdeps phing/phing-2.9.1
 
+ADD function.php /usr/share/php/
+
 # jenkinsインストール
 RUN yum install -y java-1.7.0-openjdk-devel
 RUN curl -o /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
