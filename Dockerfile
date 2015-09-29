@@ -30,14 +30,12 @@ RUN yum install -y jenkins
 RUN chkconfig jenkins on
 
 # capistranoインストール
-RUN yum install -y zlib-devel openssl-devel gcc make openssh-clients sudo
+RUN yum install -y zlib-devel openssl-devel gcc make subversion openssh-clients sudo
 RUN curl -O http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.5.tar.gz && \
   tar xf ruby-2.1.5.tar.gz && \
   cd ruby-2.1.5 && \
   ./configure && \
   make install
 RUN gem install capistrano -v 2.15.4 --no-ri --no-rdoc
-#RUN gem uninstall net-ssh
-#RUN gem install net-ssh --no-ri --no-rdoc
 
 ENTRYPOINT service jenkins start && /bin/bash
