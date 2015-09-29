@@ -30,7 +30,7 @@ RUN yum install -y jenkins
 RUN chkconfig jenkins on
 
 # capistranoインストール
-RUN yum install -y zlib-devel openssl-devel gcc make
+RUN yum install -y zlib-devel openssl-devel gcc make openssh-clients sudo
 RUN curl -O http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.5.tar.gz && \
   tar xf ruby-2.1.5.tar.gz && \
   cd ruby-2.1.5 && \
